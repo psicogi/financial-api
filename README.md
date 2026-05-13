@@ -1,98 +1,323 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+<div align="center">
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Financial API
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+### A RESTful API for personal financial control built with NestJS and TypeScript
 
-## Description
+[![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
+[![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)](https://swagger.io/)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[English](#-about) • [Português](#-sobre)
 
-## Project setup
+</div>
 
-```bash
-$ npm install
-```
+---
 
-## Compile and run the project
+## 🇺🇸 English
 
-```bash
-# development
-$ npm run start
+### About
 
-# watch mode
-$ npm run start:dev
+A RESTful API for personal financial control, featuring user authentication, transaction management, and a financial summary endpoint. Built with **NestJS**, **TypeScript**, and **PostgreSQL**.
 
-# production mode
-$ npm run start:prod
-```
+### Features
 
-## Run tests
+-  User registration and authentication with **JWT**
+-  Create, list, update and delete **transactions** (income/expense)
+-  **Financial summary** with total income, total expenses and balance
+-  **Pagination and filters** on transactions (type, category, date range)
+-  **Data validation** with class-validator DTOs
+-  **Auto-generated docs** with Swagger UI
+-  **Unit tests** with Jest (17 tests passing)
+-  **Layered architecture** (Controller → Service → Repository)
 
-```bash
-# unit tests
-$ npm run test
+### Tech Stack
 
-# e2e tests
-$ npm run test:e2e
+| Technology | Purpose |
+|------------|---------|
+| NestJS | Node.js framework |
+| TypeScript | Type-safe JavaScript |
+| PostgreSQL | Relational database |
+| TypeORM | ORM for database access |
+| JWT + Passport | Authentication |
+| bcryptjs | Password hashing |
+| class-validator | DTO validation |
+| Swagger | API documentation |
+| Jest | Unit testing |
 
-# test coverage
-$ npm run test:cov
-```
+### Getting Started
 
-## Deployment
+#### Prerequisites
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+- Node.js 18+
+- PostgreSQL 14+
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+#### Installation
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# Clone the repository
+git clone https://github.com/your-username/financial-api.git
+cd financial-api
+
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.example .env
+# Edit .env with your database credentials
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+#### Environment Variables
 
-## Resources
+```env
+PORT=3000
+NODE_ENV=development
 
-Check out a few resources that may come in handy when working with NestJS:
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=financial_db
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+JWT_SECRET=your_secret_key
+JWT_EXPIRES_IN=7d
+```
 
-## Support
+#### Database Setup
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+# Create the database
+psql -U postgres -c "CREATE DATABASE financial_db;"
+```
 
-## Stay in touch
+#### Running the App
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+# Development (with hot reload)
+npm run start:dev
 
-## License
+# Production
+npm run build
+npm run start:prod
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+API available at: `http://localhost:3000/api/v1`  
+Swagger docs at: `http://localhost:3000/docs`
+
+### Running Tests
+
+```bash
+# Unit tests
+npm run test
+
+# Test coverage
+npm run test:cov
+```
+
+### API Endpoints
+
+#### Auth
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/api/v1/auth/register` | Register a new user | ❌ |
+| POST | `/api/v1/auth/login` | Authenticate user | ❌ |
+
+#### Users
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/v1/users/me` | Get current user data | ✅ |
+| PUT | `/api/v1/users/me` | Update current user | ✅ |
+| DELETE | `/api/v1/users/me` | Delete account | ✅ |
+
+#### Transactions
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/api/v1/transactions` | Create a transaction | ✅ |
+| GET | `/api/v1/transactions` | List transactions (paginated) | ✅ |
+| GET | `/api/v1/transactions/summary` | Get financial summary | ✅ |
+| GET | `/api/v1/transactions/:id` | Get transaction by ID | ✅ |
+| PUT | `/api/v1/transactions/:id` | Update a transaction | ✅ |
+| DELETE | `/api/v1/transactions/:id` | Delete a transaction | ✅ |
+
+#### Query Filters (`GET /transactions`)
+| Param | Type | Example |
+|-------|------|---------|
+| `page` | number | `1` |
+| `limit` | number | `10` |
+| `type` | `income` \| `expense` | `income` |
+| `category` | string | `Food` |
+| `startDate` | YYYY-MM-DD | `2024-01-01` |
+| `endDate` | YYYY-MM-DD | `2024-12-31` |
+
+### Project Architecture
+
+```
+src/
+├── auth/                    # Authentication module
+│   ├── dto/                 # Login DTO
+│   ├── guards/              # JWT Auth Guard
+│   └── strategies/          # JWT Strategy
+├── users/                   # Users module
+│   ├── dto/                 # Create/Update User DTOs
+│   ├── entities/            # User entity (TypeORM)
+│   ├── users.controller.ts
+│   ├── users.service.ts
+│   └── users.repository.ts
+├── transactions/            # Transactions module
+│   ├── dto/                 # Create/Update/Filter DTOs
+│   ├── entities/            # Transaction entity (TypeORM)
+│   ├── transactions.controller.ts
+│   ├── transactions.service.ts
+│   └── transactions.repository.ts
+├── common/
+│   └── decorators/          # @CurrentUser decorator
+├── app.module.ts
+└── main.ts
+```
+
+---
+
+## 🇧🇷 Português
+
+### Sobre
+
+API RESTful de controle financeiro pessoal com autenticação de usuários, gerenciamento de transações e resumo financeiro. Construída com **NestJS**, **TypeScript** e **PostgreSQL**.
+
+### Funcionalidades
+
+-  Cadastro e autenticação de usuários com **JWT**
+-  Criar, listar, atualizar e remover **transações** (entrada/saída)
+-  **Resumo financeiro** com total de entradas, saídas e saldo
+-  **Paginação e filtros** nas transações (tipo, categoria, período)
+-  **Validação de dados** com DTOs e class-validator
+-  **Documentação automática** com Swagger UI
+-  **Testes unitários** com Jest (17 testes passando)
+-  **Arquitetura em camadas** (Controller → Service → Repository)
+
+### Como Rodar
+
+#### Pré-requisitos
+
+- Node.js 18+
+- PostgreSQL 14+
+
+#### Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/financial-api.git
+cd financial-api
+
+# Instale as dependências
+npm install
+
+# Copie as variáveis de ambiente
+cp .env.example .env
+# Edite o .env com suas credenciais do banco
+```
+
+#### Variáveis de Ambiente
+
+```env
+PORT=3000
+NODE_ENV=development
+
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=financial_db
+
+JWT_SECRET=sua_chave_secreta
+JWT_EXPIRES_IN=7d
+```
+
+#### Banco de Dados
+
+```bash
+# Crie o banco de dados
+psql -U postgres -c "CREATE DATABASE financial_db;"
+```
+
+#### Rodando o Projeto
+
+```bash
+# Desenvolvimento (com hot reload)
+npm run start:dev
+
+# Produção
+npm run build
+npm run start:prod
+```
+
+API disponível em: `http://localhost:3000/api/v1`  
+Documentação Swagger: `http://localhost:3000/docs`
+
+### Rodando os Testes
+
+```bash
+# Testes unitários
+npm run test
+
+# Cobertura de testes
+npm run test:cov
+```
+
+### Endpoints da API
+
+#### Auth
+| Método | Endpoint | Descrição | Auth |
+|--------|----------|-----------|------|
+| POST | `/api/v1/auth/register` | Cadastrar novo usuário | ❌ |
+| POST | `/api/v1/auth/login` | Autenticar usuário | ❌ |
+
+#### Usuários
+| Método | Endpoint | Descrição | Auth |
+|--------|----------|-----------|------|
+| GET | `/api/v1/users/me` | Dados do usuário atual | ✅ |
+| PUT | `/api/v1/users/me` | Atualizar dados | ✅ |
+| DELETE | `/api/v1/users/me` | Remover conta | ✅ |
+
+#### Transações
+| Método | Endpoint | Descrição | Auth |
+|--------|----------|-----------|------|
+| POST | `/api/v1/transactions` | Criar transação | ✅ |
+| GET | `/api/v1/transactions` | Listar (com paginação) | ✅ |
+| GET | `/api/v1/transactions/summary` | Resumo financeiro | ✅ |
+| GET | `/api/v1/transactions/:id` | Buscar por ID | ✅ |
+| PUT | `/api/v1/transactions/:id` | Atualizar | ✅ |
+| DELETE | `/api/v1/transactions/:id` | Remover | ✅ |
+
+### Arquitetura do Projeto
+
+```
+src/
+├── auth/                    # Módulo de autenticação
+│   ├── dto/                 # DTO de login
+│   ├── guards/              # Guard JWT
+│   └── strategies/          # Estratégia JWT
+├── users/                   # Módulo de usuários
+│   ├── dto/                 # DTOs de criação/atualização
+│   ├── entities/            # Entidade User (TypeORM)
+│   ├── users.controller.ts
+│   ├── users.service.ts
+│   └── users.repository.ts
+├── transactions/            # Módulo de transações
+│   ├── dto/                 # DTOs de criação/atualização/filtro
+│   ├── entities/            # Entidade Transaction (TypeORM)
+│   ├── transactions.controller.ts
+│   ├── transactions.service.ts
+│   └── transactions.repository.ts
+├── common/
+│   └── decorators/          # Decorator @CurrentUser
+├── app.module.ts
+└── main.ts
+```
+
+---
+
+<div align="center">
+  Made with ❤️ by <a href="https://github.com/seu-usuario">Giovania Dantas</a>
+</div>
