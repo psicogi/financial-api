@@ -27,12 +27,12 @@ export class AuthService {
   }
 
   async login(dto: LoginDto) {
-    const user = await this.usersService.findByEmail(dto.email);
+  const user = await this.usersService.findByEmail(dto.email);
 
-    if (!user || !(await user.validatePassword(dto.password))) {
-      throw new UnauthorizedException('E-mail ou senha incorretos');
-    }
-
+  if (!user || !(await user.validatePassword(dto.password))) {
+    throw new UnauthorizedException('E-mail ou senha incorretos');
+  }
+  
     const token = this.generateToken(user.id, user.email);
 
     return {
